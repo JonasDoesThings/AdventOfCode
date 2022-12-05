@@ -16,7 +16,6 @@ fs.readFile('in.txt', 'utf-8', (err, data) => {
                     stacks[i].push(cleanedLine[i]);
                 }
             }
-        } else if(line.trim() === "") {
         } else if(line.startsWith("move")) {
             const [amount, from, to] = line.split(/[a-z]+/g).filter(Boolean).map(value => parseInt(value));
             stacks[to-1] = stacks[from-1].slice(0, amount).concat(stacks[to-1]);
