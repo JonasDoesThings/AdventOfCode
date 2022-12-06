@@ -1,15 +1,15 @@
 import * as fs from "fs";
 
-fs.readFile('in.txt', 'utf-8', (err, data) => {
+fs.readFile("in.txt", "utf-8", (err, data) => {
     if (err) console.log(err);
 
-    let stacks: string[][] = []
+    const stacks: string[][] = [];
     const iter = data.split("\n")[Symbol.iterator]();
     let line: string;
     while((line = iter.next().value) !== undefined) {
         if(line.includes("[")) {
             const cleanedLine = line.replace(/(?<keep>...)( |\n|$)/g, "$<keep>").replace(/\[|\]/g, "").replace(/ {3}/g, "-");
-            console.log(cleanedLine)
+            console.log(cleanedLine);
             for (let i = 0; i < cleanedLine.split("").length; i++) {
                 if (cleanedLine[i] !== "-") {
                     if (!stacks[i]) stacks[i] = [];
@@ -24,5 +24,5 @@ fs.readFile('in.txt', 'utf-8', (err, data) => {
         }
     }
 
-    console.log(stacks.reduce((s, stack) => {return s + stack[0]}, ""));
+    console.log(stacks.reduce((s, stack) => {return s + stack[0];}, ""));
 });

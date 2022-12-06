@@ -1,6 +1,6 @@
 import * as fs from "fs";
 
-fs.readFile('in.txt', 'utf-8', (err, data) => {
+fs.readFile("in.txt", "utf-8", (err, data) => {
     if (err) console.log(err);
 
     let sum = 0;
@@ -11,5 +11,5 @@ fs.readFile('in.txt', 'utf-8', (err, data) => {
         sum += [...overlap].reduce((accumulator, char) => accumulator + (char.charCodeAt(0) - (char.charCodeAt(0) <= 90 ? 38 : 96)), 0);
     }
 
-    console.log("priorities=", sum)
+    console.log("priorities=", sum);
 });
