@@ -1,4 +1,3 @@
-# Horrible performance, takes like 1h45m to execute... don't use this as reference, haha
 defmodule Day04.Part2 do
   def solve(input) do
     original_cards =
@@ -43,7 +42,7 @@ defmodule Day04.Part2 do
         end
       )
 
-    if :queue.len(q) > 0 do
+    if not :queue.is_empty(q) do
       proccess_queue(original_cards, q, counter + 1)
     else
       counter + 1
